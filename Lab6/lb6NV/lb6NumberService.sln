@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lb6NV", "lb6NV\lb6NV.csproj", "{4FC722C8-7A08-47ED-BFB0-CA25E09D0D02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lb6NumbClient", "lb6NumbClient\lb6NumbClient.csproj", "{ECFA88C1-38CD-425D-B2A9-C420AD255484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbInterfaces", "NumbInterfaces\NumbInterfaces.csproj", "{7D5CAF51-5194-4BF6-8B33-7399FAE6883F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FC722C8-7A08-47ED-BFB0-CA25E09D0D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC722C8-7A08-47ED-BFB0-CA25E09D0D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC722C8-7A08-47ED-BFB0-CA25E09D0D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC722C8-7A08-47ED-BFB0-CA25E09D0D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECFA88C1-38CD-425D-B2A9-C420AD255484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFA88C1-38CD-425D-B2A9-C420AD255484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFA88C1-38CD-425D-B2A9-C420AD255484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFA88C1-38CD-425D-B2A9-C420AD255484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5CAF51-5194-4BF6-8B33-7399FAE6883F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5CAF51-5194-4BF6-8B33-7399FAE6883F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5CAF51-5194-4BF6-8B33-7399FAE6883F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5CAF51-5194-4BF6-8B33-7399FAE6883F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
