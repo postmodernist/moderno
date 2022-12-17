@@ -17,9 +17,6 @@ namespace WcfServiceBook
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "GetBooks")]
-        List<Book> GetBooks();
-        
-
-        
+        List<Book> GetBooks();        
     }
 }

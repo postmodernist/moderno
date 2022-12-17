@@ -16,7 +16,6 @@ namespace lb6NumbClient
             num = Convert.ToInt32(Console.ReadLine());
             ChannelFactory<INumbService> channel = new ChannelFactory<INumbService>("NumbServiceEndpoint");
             INumbService proxy = channel.CreateChannel();
-            //Console.ReadLine();
             string res = proxy.Convert(num);
             Console.WriteLine("Res = " + res);
             Console.ReadLine();
