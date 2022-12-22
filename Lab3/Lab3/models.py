@@ -3,30 +3,49 @@ from django.utils import timezone
 from django.db import models
 from django.urls import reverse
 
-
-# Create your models here. # mysite /urls.py
-
-
-from django.db import models
-from django.contrib.auth.models import User
-
-
-STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
-)
-
-class Post(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
-    updated_on = models.DateTimeField(auto_now= True)
-    content = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+class Category(models.Model):
+    category = models.CharField(u'Категорія', max_length=250, help_text=u'Максимум 250 символів')
 
     class Meta:
-        ordering = ['-created_on']
+        verbose_name = u'Категорія для новин'
+        verbose_name_plural = u'Категорія для новин'
+    def __str__(self):
+        return self.category
 
+class Article(models.Model):
+    title = models.CharField(u'Заголовок', max_length=250, help_text=u'Максимум 250 символів')
+    description = models.TextField(blank=True, verbose_name=u'Опис')
+    pub_date = models.DateTimeField(u'Дата публікації', default=timezone.now)
+    slug = models.SlugField(u'Слаг', unique_for_date='pub_date')
+    main_page = models.BooleanField(u'Головна', default=False, help_text=u'Показувати')
+    category = models.ForeignKey(Category, related_name='news', blank=True, null=True, verbose_name=u'Категорія', on_delete=models.CASCADE)
+    object = models.Manager()
+    class Meta:
+        ordering = ['pub_date']
+        verbose_name = u'Стаття'
+        verbose_name_plural = u'Статті'
     def __str__(self):
         return self.title
+    def get_absolute_url(self):
+        try:
+            url = reverse('news-detail', kwargs={
+                'year': self.pub_date.strftime("%Y"),
+                'month': self.pub_date.strftime("%M"),
+                'day': self.pub_date.strftime("%d"),
+                'slug': self.slug,
+            })
+        except:
+            url = "/"
+        return url
+class ArticleImage(models.Model):
+    article = models.ForeignKey(Article, verbose_name=u'Стаття', related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(u'Фото', upload_to='photos')
+    title = models.CharField(u'Заголовок', max_length=250, help_text=u'Максимум 250 символів', blank=True)
+    class Meta:
+        verbose_name = u'Фото для статті'
+        verbose_name_plural = u'Фото для статті'
+    def __str__(self):
+        return self.title
+    @property
+    def filename(self):
+        return self.image.name.rsplit('/', 1)[-1]
